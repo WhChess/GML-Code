@@ -1,0 +1,3 @@
+- Satranç Saati - GameMaker ile.
+- (Mavi Dedektif) projesi için oyun - GameMaker ile.
+- (Geliştir) Electrify-Shooter.
