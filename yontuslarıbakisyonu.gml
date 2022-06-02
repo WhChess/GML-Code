@@ -6,3 +6,6 @@ else if(keyboard_check(ord("D"))){
 	sprite_index = spr_sag;
 	x+=10;
 }
+else{
+	sprite_index = spr_char;
+}
