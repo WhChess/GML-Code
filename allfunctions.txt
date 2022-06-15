@@ -1186,3 +1186,263 @@ window_view_mouse_set
 window_views_mouse_get_x
 window_views_mouse_get_y
 window_views_mouse_set
+gpu_set_blendenable(enable) - enable or disable the gpu blending
+gpu_set_ztestenable(enable) - enable or disable the gpu ztest
+gpu_set_zfunc(cmp_func) - set the gpu z compare function (one of cmpfunc_never, cmpfunc_less, cmpfunc_equal, cmpfunc_lessequal, cmpfunc_greater, cmpfunc_notequal, cmpfunc_greaterequal, cmpfunc_always, default is cmpfunc_lessequal)
+gpu_set_zwriteenable(enable) - enable or disable the gpu z write enable
+gpu_set_fog(enable,col,start,end) - enable or disable the fog used in the default shader setting the colour and the start and end depths
+gpu_set_cullmode(cullmode) - set the gpu cull mode (one of cull_noculling, cull_clockwise, cull_counterclockwise)
+gpu_set_blendmode(mode) - set the gpu blend mode (one of bm_normal, bm_add, bm_max, bm_subtract)
+gpu_set_blendmode_ext(src,dest) - set the gpu blend mode where source or dest could be (one of bm_zero, bm_one, bm_src_colour, bm_inv_src_colour, bm_src_alpha, bm_inv_src_alpha, bm_dest_alpha, bm_inv_dest_alpha, bm_dest_colour, bm_inv_dest_colour, bm_src_alpha_sat)
+gpu_set_blendmode_ext_sepalpha(src,dest,srcalpha,destalpha) - set the gpu blend mode where the source and destination blendmodes are set separately and the src alpha and dest alpha blend modes can be different (each param is one of bm_zero, bm_one, bm_src_colour, bm_inv_src_colour, bm_src_alpha, bm_inv_src_alpha, bm_dest_alpha, bm_inv_dest_alpha, bm_dest_colour, bm_inv_dest_colour, bm_src_alpha_sat)
+gpu_set_alphatestenable(enable) - enable or disable the gpu alpha test
+gpu_set_alphatestref(value) - set the gpu alpha test reference value (default value is 0)
+gpu_set_texfilter(linear) - set the gpu filter type for default sampler (0)
+gpu_set_texfilter_ext(sampler_id,linear) - set the gpu filter type for specified sampler
+gpu_set_texrepeat(repeat) - enable or disable the gpu texture repeat for the default sampler (NOTE: sets both u and v repeats)
+gpu_set_texrepeat_ext(sampler_id,repeat)- enable or disable the gpu texture repeat for the specified sampler (NOTE: sets both u and v repeats)
+gpu_set_colourwriteenable(red,green,blue,alpha) - enable or disable the gpu writing to destination channels individually
+gpu_set_colorwriteenable(red,green,blue,alpha) - enable or disable the gpu writing to destination channels individually
+gpu_get_blendenable() - get the current state of gpu blending
+gpu_get_ztestenable() - get the current state of gpu z test
+gpu_get_zfunc() - get the current value for gpu z function
+gpu_get_zwriteenable() - get the current state of gpu z writing
+gpu_get_fog() - get the current state of gpu fog (returns an array with entries [0] - enable/disable, [1]-colour, [2] - start value, [3] - end value)
+gpu_get_cullmode() - get the current value for the gpu cullmode
+gpu_get_blendmode() - get the current gpu blendmode value
+gpu_get_blendmode_ext() - get the current gpu blendmode (array with [0] - src blend, [1] - dest blend)
+gpu_get_blendmode_ext_sepalpha() - get the current gpu blendmode (array with [0] - src blend, [1] - dest blend, [2] - src alpha blend, [3] - dest alpha blend)
+gpu_get_blendmode_src() - get the current gpu source blend value
+gpu_get_blendmode_dest() - get the current gpu destination blend value
+gpu_get_blendmode_srcalpha() - get the current gpu source alpha blend value
+gpu_get_blendmode_destalpha() - get the current gpu destination alpha blend value
+gpu_get_alphatestenable() - get the current status of gpu alpha enable/disable
+gpu_get_alphatestref() - get the current gpu alpha test reference value
+gpu_get_texfilter() - get the current gpu texture filter status for default sampler (0)
+gpu_get_texfilter_ext(sampler_id) - get the current gpu texture filter status for specified sampler
+gpu_get_texrepeat() - get the current status gpu texture repeat for default sampler
+gpu_get_texrepeat_ext(sampler_id) - get the current status gpu texture repeat for specified sampler
+gpu_get_colorwriteenable() - get the current state of the gpu color write enable (array with [0] - red, [1] - green, [2] - blue, [3] - alpha)
+gpu_get_colourwriteenable() - get the current state of the gpu colour write enable (array with [0] - red, [1] - green, [2] - blue, [3] - alpha)
+gpu_push_state() - push the current gpu state onto an internal gpu state stack
+gpu_pop_state() - pop the entry from the top of the gpu state stace and make it current
+gpu_get_state() - get the current gpu state as a map (returns a map id)
+gpu_set_state(map) - set the current gpu state to the state stored in given map
+draw_light_define_ambient(col) - set the ambient light colour for lighting, replacement for d3d_light_define_ambient
+draw_light_define_direction(ind,dx,dy,dz,col) - set the light ind as a directional light for a given directional vector with colour, replacement for d3d_light_define_direction
+draw_light_define_point(ind,x,y,z,range,col) - set the light ind as a point light for a given position and range with colour, replacement for d3d_light_define_point
+draw_light_enable(ind,enable) - enable or disable a specific light
+draw_set_lighting(enable) - enable or disable lighting
+draw_light_get_ambient() - get the ambient light colour
+draw_light_get(ind) - get the settings for a given light (returns array with [0] - enabled/disabled, [1] - light type (point or direction), [2] - x, [3] - y, [4] - z, [4] - w, [5] - colour)
+draw_get_lighting() - current status of lighting (enabled or disabled)
+camera_create() - create a camera
+camera_create_view(room_x,room_y,width,height,angle,object,x_speed,y_speed,x_border,y_border) - create a camera with settings for a view in a room
+camera_destroy(camera) - destroy the given camera
+camera_apply(camera) - apply the camera settings to the current camera
+camera_get_active() - get the current active camera
+camera_get_default() - get the current default camera (camera used when there are no views active)
+camera_set_default(camera) - set the given camera as the default camera
+camera_set_view_mat(camera,matrix) - set the view matrix of the given camera
+camera_set_proj_mat(camera,matrix) - set the projection matrix of the given camera
+camera_set_update_script(camera,script) - set the update script to use on the given camera
+camera_set_begin_script(camera,script) - set the begin script to use on the given camera
+camera_set_end_script(camera,script) - set the end script to use on the given camera
+camera_set_view_pos(camera,x,y) - set the view position on the given camera
+camera_set_view_size(camera,width,height) - set the view size on the given camera
+camera_set_view_speed(camera,x_speed,y_speed) - set the view speed on the given camera
+camera_set_view_border(camera,x_border,y_border) - set view the border size on the given camera
+camera_set_view_angle(camera,angle)- set view the angle on the given camera
+camera_set_view_target(camera,object) - set the target object for the given camera
+camera_get_view_mat(camera) - get the view matrix for the given camera
+camera_get_proj_mat(camera) - get the projection matrix for the given camera
+camera_get_update_script(camera) - get the update script for the given camera
+camera_get_begin_script(camera) - get the begin script for the given camera
+camera_get_end_script(camera) - get the end script for the given camera
+camera_get_view_x(camera) - get the view pos x value for the given camera
+camera_get_view_y(camera) - get the view pos y value for the given camera
+camera_get_view_width(camera) - get the view width for the given camera
+camera_get_view_height(camera) - get the view height for the given camera
+camera_get_view_speed_x(camera) - get the view speed x for the given camera
+camera_get_view_speed_y(camera) - get the view speed y for the given camera
+camera_get_view_border_x(camera) - get the view border x for the given camera
+camera_get_view_border_y(camera) - get the view border y for the given camera
+camera_get_view_angle(camera) - get the view angle for the given camera
+camera_get_view_target(camera) - get the view target object for the given camera
+texture_get_uvs(texid) - returns an array with the uv positions for the given texture id [0] - top, [1] - left, [2] - right, [4] - bottom
+sprite_set_speed(ind,speed,type) - set the speed for the sprite and set type spritespeed_framespersecond or spritespeed_framespergameframe
+sprite_get_speed_type(ind) - get the speed type for the given sprite
+sprite_get_speed(ind) - get the speed for the sprite
+matrix_build_identity() - return an identity matrix
+matrix_build_lookat(xfrom,yfrom,zfrom,xto,yto,zto,xup,yup,zup) - builds a "look-at" (view) matrix for a camera at position (xfrom, yfrom, zfrom) and looking at a point (xto, yto, zto) with an up vector of (xup, yup, zup)
+matrix_build_projection_ortho(width,height,znear,zfar) - build an orthographic projection matrix with width, height and a z range from znear to zfar
+matrix_build_projection_perspective(width,height,znear,zfar) - build a perspective matrix with width, height and a z range from znear to zfar
+matrix_build_projection_perspective_fov(fov_y,aspect,znear,zfar)- build a perspective matrix with field of view ange fov_y and an aspect ration and a z range from znear to zfar
+matrix_transform_vertex(matrix, x, y, z, [w=1]) - multiply the given vector (x,y,z,w) by the matrix NOTE: if no w component given then it is treated as 1
+matrix_stack_push(optional_matrix) - push matrix onto the matrix stack
+matrix_stack_pop() - pop matrix from the top of the matrix stack
+matrix_stack_set(matrix) - set the given matrix as the top of the matrix stacl
+matrix_stack_clear() - clear the matrix stack
+matrix_stack_top() - return the value at the top of the matrix
+matrix_stack_is_empty() - return true if matrix stack is empty, false otherwise
+room_set_viewport(room_ind,vind,vis,xport,yport,wport,hport) - set the viewport for a specific view in a specific room
+room_get_viewport(room_ind,vind) - get the viewport for a specific view in a specific room (returns array [0] - xport, [1] - yport, [2] - wport, [3] - hport)
+room_get_camera(room_ind,vind) - get the camera for a specific view in a specific room
+room_set_camera(room_ind,vind,camera) - set the camera for a specific view in a specific room
+view_get_camera(view) - get the camera for a view in the current room
+view_get_visible(view) - get the visible status for a the view in the current room
+view_get_xport(view) - get the xport for the view in the current room
+view_get_yport(view) - get the yport for the view in the current room
+view_get_wport(view) - get the wport for the view in the current room
+view_get_hport(view) - get the hport for the view in the current room
+view_get_surface_id(view) - get the surface_id for the requested view in the current room
+view_set_camera(view,camera) - set the camera for a view in the current room
+view_set_visible(view,visible) - enable or disable the visibility of a view in the current room
+view_set_xport(view,xport) - set the xport of the view in the current room
+view_set_yport(view,yport) - set the yport of the view in the current room
+view_set_wport(view,wport) - set the wport of the view in the current room
+view_set_hport(view,hport) - set the hport of the view in the current room
+view_set_surface_id(view,surface_id) - set the surface_id for the view in the current room
+part_system_create_layer(layer,persistent) - create a particle system on a given layer and mark it as persistent or not
+part_system_get_layer(part_ind) - get the layer of a given particle system
+part_system_layer(part_ind,layer) - set the layer of a particle system
+layer_get_id(layer_name) - get the id of a layer name
+layer_get_id_at_depth(depth) - get the id of a layer of a particular depth
+layer_get_depth(layer_id) - get the depth of a layer
+layer_create(depth,name*,...) - create a layer at a given depth with an optional name
+layer_destroy(layer_id) - destroy the given layer id
+layer_destroy_instances(layer_id) - destroy all the instance on a given layer
+layer_add_instance(layer_id,instance) - add an instance to a given layer
+layer_has_instance(layer_id,instance) - returns true if given instance is on the given layer
+layer_set_visible(layer_id,visible) - enable or disable a given layer (if disabled nothing on it will draw)
+layer_get_visible(layer_id) - returns true if the given layer is visible
+layer_exists(layer_id) - return true if the given layer exists
+layer_x(layer_id,x) - set the given layers x value
+layer_y(layer_id,y) - set the given layers y value
+layer_get_x(layer_id) - get the given layers x value
+layer_get_y(layer_id) - get the given layers y value
+layer_hspeed(layer_id,speed) - set the given layers horizontal speed value
+layer_vspeed(layer_id,speed) - set the given layers vertical speed value
+layer_get_hspeed(layer_id) - get the given layers horizontal speed value
+layer_get_vspeed(layer_id) - set the given layers vertical speed value
+layer_script_begin(layer_id,script) - set the given layers begin script
+layer_script_end(layer_id,script) - set the given layers end script
+layer_shader(layer_id,shader) - set the given layers shader
+layer_get_script_begin(layer_id) - get the given layers begin script
+layer_get_script_end(layer_id) - get the given layers end script
+layer_get_shader(layer_id) - get the given layers shader
+layer_set_target_room(room) - set the current layer target room to a given room (allows changing layers in other rooms)
+layer_get_target_room() - get the current layer target room
+layer_reset_target_room() - reset the target room back to the current room
+layer_get_all() - returns an array with a unique ID for each layer in the room
+layer_get_all_elements(layer_id) - returns an array with all the element IDs for the given layer
+layer_get_name(layer_id) - returns the name of the layer
+layer_depth(layer_id, depth) - set the depth of the layer
+layer_get_element_layer(element_id) - get the layer id of the given element id
+layer_get_element_type(element_id) - get the type (kind of) of the element id
+layer_element_move(element_id,layer_id) - move an element id to another layer
+layer_force_draw_depth(force,depth) - force all layers to be drawn at a specific Z depth (does not change ordering)
+layer_is_draw_depth_forced() - true if currently being rendered with draw depth forced
+layer_get_forced_depth() - get the value of the depth that rendering is enforcing
+layer_background_get_id(layer_id) - get the background id from a layer (-1 if no background id)
+layer_background_exists(layer_id,background_element_id) - true if the background id exists on the layer
+layer_background_create(layer_id,sprite) - create a new background using sprite index on the layer, returns background id
+layer_background_destroy(background_element_id) - destroy a background
+layer_background_visible(background_element_id,visible) - set the visibility of the background id
+layer_background_change(background_element_id,sprite) - change the sprite on a background id
+layer_background_htiled(background_element_id,tiled) - set the background id to be horizontally tiled (enable or disable)
+layer_background_vtiled(background_element_id,tiled) - set the background id to be vertically tiled (enable or disable)
+layer_background_xscale(background_element_id,scale) - set the background id x scale value
+layer_background_yscale(background_element_id,scale) - set the background id y scale value
+layer_background_blend(background_element_id,col) - set the colour tint value for the background id
+layer_background_alpha(background_element_id,alpha) - set the alpha value for the background id (0..1)
+layer_background_index(background_element_id,image_index) - set the image_index to use for the background id
+layer_background_speed(background_element_id,image_speed) - set the image speed to use for animation on the background id (0 - no animation)
+layer_background_get_visible(background_element_id) - get the visiblity of the background id
+layer_background_get_sprite(background_element_id) - get the sprite index of the background id
+layer_background_get_htiled(background_element_id) - get the horizontal tiling value for the background id
+layer_background_get_vtiled(background_element_id) - get the vertical tiling value for the background id
+layer_background_get_xscale(background_element_id) - get the x scale value for the background id
+layer_background_get_yscale(background_element_id) - get the t scale value for the background id
+layer_background_get_blend(background_element_id) - get the colour tint value for the background id
+layer_background_get_alpha(background_element_id) - get the alpha value for the background id (0..1)
+layer_background_get_index(background_element_id) - get the image_index for the background id
+layer_background_get_speed(background_element_id) - get the image speed for the background id
+layer_sprite_get_id(layer_id,sprite_element_name) - get the element id with the sprite_element_name on the layer
+layer_sprite_exists(layer_id,sprite_element_id) - return true if the layer has the sprite_element_id on it
+layer_sprite_create(layer_id,x,y,sprite) - create a sprite element on layer at position x, y
+layer_sprite_destroy(sprite_element_id) - destroy the sprite element
+layer_sprite_change(sprite_element_id,sprite) - change the sprite index to use for the given sprite element
+layer_sprite_index(sprite_element_id,image_index) - set the image index for the sprite element
+layer_sprite_speed(sprite_element_id,image_speed) - set the image speed for the sprite element
+layer_sprite_xscale(sprite_element_id,scale) - set the x scale for the sprite element
+layer_sprite_yscale(sprite_element_id,scale) - set the y scale for the sprite element
+layer_sprite_angle(sprite_element_id,angle) - set the angle for the sprite element
+layer_sprite_blend(sprite_element_id,col) - set the colour tint value for the sprite element
+layer_sprite_alpha(sprite_element_id,alpha) - set the alpha value for the sprite element (0..1)
+layer_sprite_x(sprite_element_id,x) - set the x position of the sprite element
+layer_sprite_y(sprite_element_id,y) - set the y position of the sprite element
+layer_sprite_get_sprite(sprite_element_id) - get the sprite index for the sprite element
+layer_sprite_get_index(sprite_element_id) - get the image index for the sprite element
+layer_sprite_get_speed(sprite_element_id) - get the image speed for the sprite element
+layer_sprite_get_xscale(sprite_element_id) - get the x scale for the sprite element
+layer_sprite_get_yscale(sprite_element_id) - get the y scale for the sprite element
+layer_sprite_get_angle(sprite_element_id) - get the angle for the sprite element
+layer_sprite_get_blend(sprite_element_id) - get the colour tint value for the sprite element
+layer_sprite_get_alpha(sprite_element_id) - get the alpha value for the sprite element
+layer_sprite_get_x(sprite_element_id) - get the x position for the sprite element
+layer_sprite_get_y(sprite_element_id) - get the y position for the sprite element
+layer_tilemap_get_id(layer_id) - get the tilemap element id for the given tile layer (-1 if not present)
+layer_tilemap_exists(layer_id,tilemap_element_id) - return true if tilemap_element_id is on layer
+layer_tilemap_create(layer_id,x,y,tileset,width,height) - create a tilemap element at position x, y using tileset and has width and height in tiles (not pixels), return id
+layer_tilemap_destroy(tilemap_element_id) - destroy the tilemap element id
+tilemap_tileset(tilemap_element_id,tileset) - set the tileset to use for the tilemap element
+tilemap_x(tilemap_element_id,x) - set the x position of the tilemap element
+tilemap_y(tilemap_element_id,y) - set the y position of the tilemap element
+tilemap_set(tilemap_element_id,tiledata,cell_x,cell_y) - set the tiledata at the cell (x,y) position on the tilemap element
+tilemap_set_at_pixel(tilemap_element_id,tiledata,x,y) - set the tiledata at the pixel (x,y) position on the tilemap element
+tilemap_get_tileset(tilemap_element_id) - get the tileset used for the tilemap element
+tilemap_get_tile_width(tilemap_element_id) - get the tile width of the tilemap element
+tilemap_get_tile_height(tilemap_element_id) - get the tile height of the tilemap element
+tilemap_get_width(tilemap_element_id) - get the width (in tiles) of the tilemap element
+tilemap_get_height(tilemap_element_id) - get the height (in tiles) of the tilemap element
+tilemap_get_x(tilemap_element_id) - get the x position of the tilemap element
+tilemap_get_y(tilemap_element_id) - get the y position of the tilemap element
+tilemap_get(tilemap_element_id,cell_x,cell_y) - get the tiledata for the cell at (cell_x, cell_y) on this tilemap element
+tilemap_get_at_pixel(tilemap_element_id,x,y) - get the tiledata for the pixel at (x, y) on this tilemap element
+tilemap_get_cell_x_at_pixel(tilemap_element_id,x,y) - get the cell x for the pixel at (x, y) on this tilemap element
+tilemap_get_cell_y_at_pixel(tilemap_element_id,x,y) - get the cell y for the pixel at (x, y) on this tilemap element
+tilemap_clear(tilemap_element_id,tiledata) - clear all the cells in the tilemap element with the given tiledata
+draw_tilemap(tilemap_element_id,x,y) - draw the tilemap at position x, y in the current view
+draw_tile(tileset,tiledata,frame,x,y) - draw the given tiledata from the tileset using given frame at position x, y in the current view
+tilemap_set_global_mask(mask) - set the current rendering global mask for ALL tilemap elements (allows user to reserve bits in the tiledata as renderer can be set to ignore them using this function) NOTE:this does not affect get/set tiledata functions above
+tilemap_get_global_mask() - get the current global mask
+tilemap_set_mask(tilemap_element_id, mask) - set the current rendering mask for this tilemap element (allows user to reserve bits in the tiledata as renderer can be set to ignore them using this function) NOTE:this does not affect get/set tiledata functions above
+tilemap_get_mask(tilemap_element_id) - get the current rendering mask
+tilemap_get_frame(tilemap_element_id) - get the current frame number for the tilemap element
+tile_set_empty(tiledata) - set the tiledata to be an empty cell, returns modified tiledata
+tile_set_index(tiledata,tileindex) - set the tileindex to use on a given tiledata, returns modified tiledata
+tile_set_flip(tiledata,flip) - enable or disable the flip flag on tiledata, returns modified tiledata
+tile_set_mirror(tiledata,mirror) - enable or disable the mirror flag on the tiledata, returns modified tiledata
+tile_set_rotate(tiledata,rotate) - enable or disable the rotate flag on the tiledata, returns modified tiledata
+tile_get_empty(tiledata) - returns true if tiledata is empty
+tile_get_index(tiledata) - returns the index of the tile from tiledata
+tile_get_flip(tiledata) - returns the flip flag of the tiledata
+tile_get_mirror(tiledata) - returns the mirror flag of the tiledata
+tile_get_rotate(tiledata) - returns the rotate flag of the tiledata
+instance_activate_layer(layer_id) - activate all instances on the layer
+instance_deactivate_layer(layer_id) - deactivate all instance on the layer
+instance_id_get(index) - get an entry from the instance_id array
+array_equals(var1,var2) - returns true if var1 and var2 are arrays and they are either the same array or an equivalent array
+array_create( size, [val], ... ) - create an array of the given size (can be 0), if val argument is passed in then every entry will be set to that value (NOTE: This makes the function slower); if not given then all entries are set to 0.
+array_copy(dest,dest_index,src,src_index,length) - copy length entries from source to destination array from the source index to destination index
+variable_global_exists(name) - returns true if global variable exists
+variable_global_get(name) - returns the value of a global variable, returns undefined if not present
+variable_global_set(name,val) - sets the value of a global variable
+variable_instance_exists(id, name) - returns true if instance variable exists
+variable_instance_get(id,name) - returns the value of a instance variable, returns undefined if not present
+variable_instance_set(id,name,val) - sets the value of a instance variable
+string_hash_to_newline(str) - replaces occurences of "#" in a string with "\n"
+game_set_speed(value,type) - set the game speed to value as either gamespeed_fps or gamespeed_microseconds
+game_get_speed(type) - get the current game speed in terms of gamespeed_fps or gamespeed_microseconds
+load_csv(filename) - load a CSV file from filename
