@@ -650,7 +650,7 @@ joystick_vpos
 joystick_xpos
 joystick_ypos
 joystick_zpos
-keyboard_check
+keyboard_check - Kontrol edilen sırada tuşun basılı olup olmadığını kontrol eder, eğer tuş basılıysa 1 değerini alır.
 keyboard_check_direct
 keyboard_check_pressed
 keyboard_check_released
