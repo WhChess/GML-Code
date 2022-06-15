@@ -618,7 +618,7 @@ instance_activate_object
 instance_activate_region
 instance_change
 instance_copy
-instance_create
+instance_create_layer - Bir düzlem üzerinde obje oluşturur.
 instance_deactivate_all
 instance_deactivate_object
 instance_deactivate_region
