@@ -353,15 +353,15 @@ draw_rectangle_color
 draw_roundrect
 draw_roundrect_color
 draw_self
-draw_set_alpha
+draw_set_alpha - Netliği Ayarlama
 draw_set_blend_mode
 draw_set_blend_mode_ext
 draw_set_circle_precision
-draw_set_color
-draw_set_font
-draw_set_halign
+draw_set_color - Rengi Ayarlama
+draw_set_font - Font (Yazı Düzeni) Ayarlama.
+draw_set_halign - Yatay Hizalamayı Ayarla.
 draw_set_swf_aa_level
-draw_set_valign
+draw_set_valign - Dikey Hizalamayı Ayarla.
 draw_skeleton
 draw_skeleton_collision
 draw_skeleton_time
@@ -384,7 +384,7 @@ draw_surface_stretched
 draw_surface_stretched_ext
 draw_surface_tiled
 draw_surface_tiled_ext
-draw_text
+draw_text - Ekrana Yazı Yazdır.
 draw_text_color
 draw_text_ext
 draw_text_ext_color
