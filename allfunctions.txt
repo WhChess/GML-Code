@@ -694,7 +694,7 @@ min
 min3
 motion_add
 motion_set
-mouse_check_button
+mouse_check_button - Mouse üzerindeki butonun basılı olup olmadığını kontrol eder, basıldığında 1 değerini alır.
 mouse_check_button_pressed
 mouse_check_button_released
 mouse_clear
@@ -710,7 +710,7 @@ move_outside_solid
 move_random
 move_random
 move_snap
-move_towards_point
+move_towards_point - gösterilen x ve y kordinatlarına, belirtilen hızla gidilmesi sağlanır.
 move_wrap
 mp_grid_add_cell
 mp_grid_add_instances
@@ -901,9 +901,9 @@ path_shift
 path_start
 place_empty
 place_free
-place_meeting
+place_meeting - obje ile x ve y kordinatlarının uyuşup uyuşmadığını kontrol eder.
 place_snapped
-point_direction
+point_direction - Gösterilen x ve y doğrusunun "direction" kısmını ifade eder.
 point_distance
 position_change
 position_destroy
@@ -929,7 +929,7 @@ room_assign
 room_duplicate
 room_exists
 room_get_name
-room_goto
+room_goto - Oda değiştirmeyi sağlayan fonksiyon.
 room_goto_next
 room_goto_previous
 room_instance_add
