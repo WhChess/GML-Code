@@ -159,7 +159,7 @@ cd_track
 cd_track_length
 cd_track_position
 ceil
-choose
+choose - Verilen değişkenlerden birini seçer. ex.: name = choose("John", "Steven", "Graham", "Jack", "Emily", "Tina", "Jill", "Helen");
 chr
 clipboard_get_text
 clipboard_has_text
@@ -603,6 +603,7 @@ highscore_set_strings
 highscore_show
 highscore_show_ext
 highscore_value
+irandom - irandom(x) 0 ile x arasında TAM SAYI değeri getirir. 0 ve x dahildir.
 ini_close
 ini_key_delete
 ini_key_exists
@@ -910,7 +911,7 @@ position_empty
 position_meeting
 power
 radtodeg
-random
+random - random(x) 0 ile x arasında değer getirir. 0 ve x dahil.
 real
 registry_exists
 registry_exists_ext
