@@ -1,0 +1,2 @@
+random(x) - 0.00 ve X arasında rastgele bir değer üretir. 0 ve X dahil, Reel sayı olarak.
+irandom(x) - 0 ve X arasında rastgele tam sayı üretir. 0 ve X dahil, Tam sayı olarak.
