@@ -624,7 +624,7 @@ instance_create_depth
 instance_deactivate_all
 instance_deactivate_object
 instance_deactivate_region
-instance_destroy
+instance_destroy - Bir düzlem üzerinde obje siler.
 instance_exists
 instance_find
 instance_furthest
