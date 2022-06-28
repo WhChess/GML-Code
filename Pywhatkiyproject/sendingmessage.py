@@ -10,6 +10,7 @@ async def main():
         1 - Kişi kaydet (En fazla 3 kişi kaydedebilirsin)
         2 - Mesaj Gönder (DM)
         3 - Grup Mesajı gönder (grupta ADMIN rolüne sahip olmalısın.)
+        4 - Youtube'dan video izle.
         """)
         secim = input()
         if(secim=="1"):
@@ -81,6 +82,22 @@ async def main():
                     saat2 = "0"
                 mesaj = input("gruba göndermek istediğin mesaj: ")
                 pywhatkit.sendwhatmsg_to_group(link2, mesaj, int(saat1), int(saat2), int(saniye))
+            else:
+                return -1
+        elif(secim=="4"):
+            videolink = input("İzlemek istediğin video (Link veya İsim): ")
+            print(""" 
+            1 - Kaydedilmiş bir kişiye
+            2 - Bir telefon numarasına
+            3 - Bir gruba
+            4 - Hiçbiri, sadece videoyu izlemek istiyorum.
+            
+            """)
+            cevap = input("Videoyu kime göndereceksin? => ")
+            if(cevap=="4"):
+                pywhatkit.playonyt(videolink)
+            elif((cevap=="1") ^ (cevap=="2") ^ (cevap=="3")):
+                print("Çok yakında bu özellik geliyor!")
             else:
                 return -1
             
