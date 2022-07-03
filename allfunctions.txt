@@ -653,7 +653,7 @@ joystick_ypos
 joystick_zpos
 keyboard_check - Kontrol edilen sırada tuşun basılı olup olmadığını kontrol eder, eğer tuş basılıysa 1 değerini alır.
 keyboard_check_direct
-keyboard_check_pressed
+keyboard_check_pressed -Kontrol edilen sırada tuşa basılıp basılmadığını kontrol eder, her basıldığında değer 1 olur; geri çekilince 0'a döner, tekrar basman gerekir.
 keyboard_check_released
 keyboard_clear
 keyboard_get_map
@@ -977,7 +977,7 @@ show_question
 show_question
 show_text
 show_video
-sign
+sign - Tam sayı değerinin işaretini alır. negatifse: -1 , pozitifse: +1, 0 ise: 0.
 sin
 sleep
 sound_3d_set_sound_cone
