@@ -17,4 +17,7 @@ if(place_meeting(x, y+dikey_hiz, obj_duvar)){
 		y += sign(dikey_hiz);
 	}
 	dikey_hiz = 0;
+	if(y!=df_y){
+		y=df_y;
+	}
 }
