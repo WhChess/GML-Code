@@ -693,7 +693,7 @@ message_text_font
 min
 min3
 motion_add
-motion_set
+motion_set - Belirli bir yön üzerinde, objeye hız kazandırır.
 mouse_check_button - Mouse üzerindeki butonun basılı olup olmadığını kontrol eder, basıldığında 1 değerini alır.
 mouse_check_button_pressed
 mouse_check_button_released
